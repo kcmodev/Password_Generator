@@ -17,9 +17,11 @@ for symbol in unwanted_symbols:
 # take input for user to select password length and cast to integer
 while True:
     try:
-        num_chars = int(input("Select the number of characters for your password: "))
+        num_chars = int(
+            input("Select the number of characters for your password: "))
 
-        # decrement until 0 and return a password of random ascii chars of the desired length
+        # decrement until 0
+        # return a password of random ascii chars of the desired length
         while num_chars >= 0:
             random_char = letters + symbols
 
@@ -27,7 +29,8 @@ while True:
             num_chars -= 1
 
         # print generated password
-        print(f"Your generated password is: {password} and it is copied to your clipboard.")
+        print(f"Your generated password is: {password} "
+              f"and it is copied to your clipboard.")
 
         # copy generated password to clipboards
         os.system(f"echo -E \"{password}\" | pbcopy")
